@@ -137,6 +137,26 @@ defect<-17
 prob<-dhyper(3,defect,success,5)
 cat(prob)
 
+n <- 31       
+p <- 0.447    
+x_values <- 0:n  
+pmf_values <- dbinom(x_values, size=n, prob=p)
+cat("PMF values:", pmf_values, "\n")
+#plot kro
+plot(0:n, dbinom(0:n, size=n, prob=p), type="h")
+
+cdf_values <- pbinom(x_values, size=n, prob=p)
+#plot kro
+# plot(0:n, pbinom(0:n, size=n, prob=p), type="s")
+cat("CDF values:", cdf_values, "\n")
+
+mean_X <- n * p
+variance_X <- n * p * (1 - p)
+sd_X <- sqrt(variance_X)
+cat("Mean:", mean_X, "\n")
+cat("Variance:", variance_X, "\n")
+cat("Standard Deviation:", sd_X, "\n")
+
 x=c(0,1,2,3,4)
 p=c(0.41,0.37,0.16,0.05,0.01)
 f1=sum(x*p)
